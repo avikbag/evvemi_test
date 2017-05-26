@@ -11,9 +11,9 @@ app.listen(process.env.PORT || 5000);
 
 var Pool = require('pg').Pool;
 var pool = new Pool({
-  user: RDS_user,
-  password: RDS_pass,
-  host: RDS_url,
+  user: RDSUSER,
+  password: RDSPASS,
+  host: RDSURL,
   database: 'leverjs',
   //max: 10, // max number of clients in pool
   //idleTimeoutMillis: 1000, // close & remove clients which have been idle > 1 second
