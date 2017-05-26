@@ -26,10 +26,10 @@ pool.on('error', function(e, client) {
 	console.log('There was some sort of error')
 });
 
-var ct = `CREATE Table Student{ 
+var ct = `CREATE Table Potato( 
             name varchar(128),
-            id integer;
-}`;
+            id integer primary key
+          )`;
 
 // you can run queries directly against the pool
 pool.query(ct, function(err, result) {
