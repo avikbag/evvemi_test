@@ -32,9 +32,12 @@ var ct = `CREATE Table Potato(
           )`;
 
 // you can run queries directly against the pool
-pool.query(ct, function(err, result) {
-  console.log(result); // output: foo
-});
+app.post('/api/query', function(req, res, next){
+  console.log(req);
+  //pool.query(ct, function(err, result) {
+    //console.log(result); // output: foo
+  //});
+}
 
 //// the query object implements the promise API
 //pool.query('SELECT $1::text as name', ['foo'])
