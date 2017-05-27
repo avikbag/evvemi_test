@@ -5,7 +5,11 @@ var app = express();
 
 app.use(morgan('dev'));
 app.use(gzippo.staticGzip("" + __dirname + "/dist"));
-app.listen(process.env.PORT || 5000);
+var port = process.env.PORT || 5000;
+
+app.listen(port, function(){
+  console.log('Our app is running on http://localhost:' + port);
+};
 
 // NodeJS Connection to Postgres
 
@@ -32,13 +36,14 @@ var ct = `CREATE Table Potato(
           )`;
 
 // you can run queries directly against the pool
-app.post('/api/query', function(req, res, next){
+app.get('/api/query', function(req, res){
   console.log(req);
+  res.write('Done');
+  res.end();
   //pool.query(ct, function(err, result) {
     //console.log(result); // output: foo
   //});
 });
-app.listen(9000)
 
 //// the query object implements the promise API
 //pool.query('SELECT $1::text as name', ['foo'])
