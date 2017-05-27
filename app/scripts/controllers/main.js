@@ -20,10 +20,11 @@ angular.module('evvemiApp')
                   test: 'This is a test run',
                   body: 'Another piece of data'
                 };
+    var str_test = "select * from student";
 		$http({
-            method: 'POST',
+            method: 'GET',
             url: '/api/query',
-            params: data
+            params: str_test
     }).then(function(output) {
         console.log('Data posted successfully');
         console.log(output);
