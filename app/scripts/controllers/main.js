@@ -25,7 +25,7 @@ angular.module('evvemiApp')
 		$http({
             method: 'GET',
             url: '/api/query',
-            params: str_test
+            params: data
     }).then(function(output) {
         console.log('Data posted successfully');
         console.log(output);
