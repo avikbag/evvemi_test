@@ -39,7 +39,7 @@ var ct = `CREATE Table Potato(
 app.get('/api/query', function(res, req){
   //console.log(res.params);
   console.log(res.query);
-  req.write(res.query);
+  req.write(res.query.query);
   req.end();
   //pool.query(ct, function(err, result) {
     //console.log(result); // output: foo

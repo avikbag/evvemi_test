@@ -16,11 +16,12 @@ angular.module('evvemiApp')
     ];
   $scope.query = function(){
     console.log('Catch');
+    var str_test = "select * from student";
 		var data = {
                   test: 'This is a test run',
-                  body: 'Another piece of data'
+                  body: 'Another piece of data',
+                  query: str_test
                 };
-    var str_test = "select * from student";
 		$http({
             method: 'GET',
             url: '/api/query',
