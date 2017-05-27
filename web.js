@@ -37,9 +37,9 @@ var ct = `CREATE Table Potato(
 
 // you can run queries directly against the pool
 app.get('/api/query', function(res, req){
-  console.log(req.params);
-  res.write('Data');
-  res.end();
+  console.log(res.params);
+  req.write('Data');
+  req.end();
   //pool.query(ct, function(err, result) {
     //console.log(result); // output: foo
   //});
