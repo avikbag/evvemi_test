@@ -17,7 +17,7 @@ angular.module('evvemiApp')
   $scope.query = function(){
     console.log('Catch');
 		var data = 'This is a test data';
-		$http.get("/api/query/", data).then(function(data, status) {
+		$http.post("/api/query/", data).then(function(data, status) {
         console.log('Data posted successfully');
     });
   }

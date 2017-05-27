@@ -38,6 +38,7 @@ app.post('/api/query', function(req, res, next){
     //console.log(result); // output: foo
   //});
 });
+app.listen(9000)
 
 //// the query object implements the promise API
 //pool.query('SELECT $1::text as name', ['foo'])
