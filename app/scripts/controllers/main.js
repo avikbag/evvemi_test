@@ -20,7 +20,7 @@ angular.module('evvemiApp')
                   test: 'This is a test run',
                   body: 'Another piece of data'
                 };
-		$http.post('api/query/', data).then(function(output) {
+		$http.post('api/query?test=banana?pokem=2', data).then(function(output) {
         console.log('Data posted successfully');
         console.log(output);
     });
