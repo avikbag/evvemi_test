@@ -72,6 +72,7 @@ $scope.showTabDialog = function(ev) {
       else if(type === 6){
         q = "select name from course where studentid = ".concat($scope.queryData.get_id, ";");
       }
+      $scope.output = [];
       console.log(q);
       var data = {
                     //test: 'This is a test run',
@@ -86,7 +87,7 @@ $scope.showTabDialog = function(ev) {
           console.log('Data posted successfully');
           $scope.output = output.data;
           console.log($scope.output);
-          $scope.$apply();
+          //$scope.$apply();
           //angular.extend($scope.output, output.data);
       });
     };
