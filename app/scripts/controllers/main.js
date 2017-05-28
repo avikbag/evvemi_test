@@ -12,7 +12,8 @@ angular.module('evvemiApp')
     
     $scope.queryData = {
       name_id: null,
-      name: ''
+      name: '',
+      delete_id: null
     };
     
     var str_test = "select * from student";
@@ -29,6 +30,9 @@ angular.module('evvemiApp')
       }
       else if(type === 3){
         q = "insert into student (name, id) values ('".concat($scope.queryData.name, "',", $scope.queryData.name_id, ");");
+      }
+      else if(type === 4){
+        q = "delete from student where id = ".concat($scope.queryData.delete_id);
       }
       console.log(q);
       var data = {
