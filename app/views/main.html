@@ -36,6 +36,27 @@
 	</form>
 	<form name="crud">
 		<div layout="row" layout-align="center center">
+			<md-input-container flex='40' class="md-block">
+				<label>Current Student ID</label>
+				<input md-maxlength="30" required md-no-asterisk name="name_name" ng-model="queryData.new_id">
+				<div ng-messages="crud.name_name.$error">
+					<div ng-message="required">This is required.</div>
+				</div>
+			</md-input-container>
+			<md-input-container flex='40' class="md-block">
+				<label>Updated Student Name</label>
+				<input md-maxlength="30" required md-no-asterisk name="name_id" ng-model="queryData.new_name">
+				<div ng-messages="crud.name_id.$error">
+					<div ng-message="required">This is required.</div>
+				</div>
+			</md-input-container>
+			<md-content flex='20'>
+				<md-button ng-click=query(4) class="md-raised md-primary">Update data</md-button>
+			</md-content>
+		</div>
+	</form>
+	<form name="crud">
+		<div layout="row" layout-align="center center">
 			<div flex='40'>
         <h4>Remove Student Entry</h4>
       </div>
@@ -48,7 +69,7 @@
 				</div>
 			</md-input-container>
 			<md-content flex='20'>
-				<md-button ng-click=query(4) class="md-raised md-warn">Remove data</md-button>
+				<md-button ng-click=query(5) class="md-raised md-warn">Remove data</md-button>
 			</md-content>
 		</div>
 	</form>
