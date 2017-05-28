@@ -16,14 +16,15 @@ angular.module('evvemiApp')
     };
     
     var str_test = "select * from student";
-    var insertStudent = 'insert into student (name, id) values ('.concat($scope.queryData.name, ",", $scope.queryData.name_id, ");");
+    //var insertStudent = 'insert into student (name, id) values ('.concat($scope.queryData.name, ",", $scope.queryData.name_id, ");");
   
-    $scope.query = function(data, queryStr){
+    $scope.query = function(){
+      var insertStudent = 'insert into student (name, id) values ('.concat($scope.queryData.name, ",", $scope.queryData.name_id, ");");
       console.log(insertStudent);
       var data = {
                     //test: 'This is a test run',
                     //body: 'Another piece of data',
-                    query: queryStr
+                    query: insertStudent
                   };
       $http({
               method: 'GET',
