@@ -31,7 +31,8 @@ $scope.showTabDialog = function(ev) {
       parent: angular.element(document.querySelector('.main')),
       targetEvent: ev,
       clickOutsideToClose:true, 
-      bindToController: true, 
+      bindToController: true,
+      preserveScope: true,
       locals:{
         output: $scope.output,
       }
@@ -57,6 +58,7 @@ $scope.showTabDialog = function(ev) {
     //var insertStudent = 'insert into student (name, id) values ('.concat($scope.queryData.name, ",", $scope.queryData.name_id, ");");
     //$scope.type = 1; // This keeps a track of the operation we want to carry out. 
 
+    $scope.output = [];
     $scope.query = function(type){
       var q;
       if (type === 1){
@@ -76,8 +78,8 @@ $scope.showTabDialog = function(ev) {
       }
       else if(type === 6){
         q = "select name from course where studentid = ".concat($scope.queryData.get_id, ";");
+        //$scope.output.push($scope.output.length + 1);
       }
-      $scope.output = [];
       console.log(q);
       var data = {
                     //test: 'This is a test run',
@@ -90,7 +92,11 @@ $scope.showTabDialog = function(ev) {
               params: data
       }).then(function(output) {
           console.log('Data posted successfully');
-          $scope.output = output.data;
+          //$scope.output = output.data;
+          for(var i = 0; i< output.data.length; i++)
+          {
+            $scope.output.push(output.data[i]);
+          }
           console.log($scope.output);
           //$scope.$apply();
           //angular.extend($scope.output, output.data);
