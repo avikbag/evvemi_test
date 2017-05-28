@@ -44,7 +44,7 @@ app.get('/api/query', function(res, req){
   pool.query(res.query.query, function(err, result) {
     console.log(result); // output: foo
     if(err){
-      console.log(err);
+      console.log(err.error);
     }
   });
 });
