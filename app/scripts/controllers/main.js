@@ -17,14 +17,24 @@ angular.module('evvemiApp')
     
     var str_test = "select * from student";
     //var insertStudent = 'insert into student (name, id) values ('.concat($scope.queryData.name, ",", $scope.queryData.name_id, ");");
-  
-    $scope.query = function(){
-      var insertStudent = "insert into student (name, id) values ('".concat($scope.queryData.name, "',", $scope.queryData.name_id, ");");
-      console.log(insertStudent);
+    //$scope.type = 1; // This keeps a track of the operation we want to carry out. 
+
+    $scope.query = function(type){
+      var q;
+      if (type === 1){
+        q = "drop table student; create table student(id integer PRIMARY KEY, name varchar(128));";
+      }
+      else if (type === 2){
+        q = "drop table course; create table course(courseid integer PRIMARY KEY, name varchar(128)), studentID integer, foreign key (studentID) references student(id);";
+      }
+      else if(type === 3){
+        q = "insert into student (name, id) values ('".concat($scope.queryData.name, "',", $scope.queryData.name_id, ");");
+      }
+      console.log(q);
       var data = {
                     //test: 'This is a test run',
                     //body: 'Another piece of data',
-                    query: insertStudent
+                    query: q
                   };
       $http({
               method: 'GET',
