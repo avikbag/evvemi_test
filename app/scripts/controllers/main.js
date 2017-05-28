@@ -22,10 +22,10 @@ angular.module('evvemiApp')
     $scope.query = function(type){
       var q;
       if (type === 1){
-        q = "drop table student; create table student(id integer PRIMARY KEY, name varchar(128));";
+        q = "create table student(id integer PRIMARY KEY, name varchar(128));";
       }
       else if (type === 2){
-        q = "drop table course; create table course(courseid integer PRIMARY KEY, name varchar(128), studentID integer, foreign key (studentID) references student(id));";
+        q = "create table course(courseid integer PRIMARY KEY, name varchar(128), studentID integer, foreign key (studentID) references student(id));";
       }
       else if(type === 3){
         q = "insert into student (name, id) values ('".concat($scope.queryData.name, "',", $scope.queryData.name_id, ");");
