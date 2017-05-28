@@ -40,14 +40,20 @@ app.get('/api/query', function(res, req){
   //console.log(res.params);
   console.log(res.query.query);
   //req.write(res.query.query);
-  pool.query(res.query.query, function(err, result) {
-    console.log(result.rows)
+  const output = pool.query(res.query.query, function(err, result) {
+    //console.log(result.rows)
     req.write(result.rows);
     if(err){
       console.log(err.error);
     }
   });
-  //req.end();
+  var results = [];
+  output.on('row', function(row){
+    results.push(row); 
+  });
+  output.on('end', function(){
+    req.end();
+  });
 });
 
 //// the query object implements the promise API
