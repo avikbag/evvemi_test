@@ -93,6 +93,7 @@ $scope.showTabDialog = function(ev) {
       }).then(function(output) {
           console.log('Data posted successfully');
           //$scope.output = output.data;
+          $scope.output = [];
           for(var i = 0; i< output.data.length; i++)
           {
             $scope.output.push(output.data[i]);
