@@ -35,6 +35,12 @@ app.listen(port, function(){
             //name varchar(128),
             //id integer primary key
           //)`;
+var connectionString = {
+  user: process.env.RDSUSER,
+  password: process.env.RDSPASS,
+  host: process.env.RDSURL,
+  database: 'leverjs'
+}
 
 app.get('/api/query', function(res, req){
   var query_string = res.query.query;
