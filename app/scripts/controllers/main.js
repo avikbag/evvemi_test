@@ -10,7 +10,8 @@
 angular.module('evvemiApp')
   .controller('MainCtrl', function ($scope, $http, $mdDialog) {
     
-function DialogController($scope, $mdDialog) {
+function DialogController($scope, $mdDialog, output) {
+    $scope.output = output;
     $scope.hide = function() {
       $mdDialog.hide();
     };
@@ -29,7 +30,11 @@ $scope.showTabDialog = function(ev) {
       templateUrl: 'views/tabDialog.tmpl.html',
       parent: angular.element(document.querySelector('.main')),
       targetEvent: ev,
-      clickOutsideToClose:true
+      clickOutsideToClose:true, 
+      bindToController: true, 
+      locals:{
+        output: $scope.output,
+      }
 			//textContent: 'This is a test',
 			//ariaLabel: 'Tets'
     })
@@ -48,7 +53,7 @@ $scope.showTabDialog = function(ev) {
       get_id: null
     };
     
-    var str_test = "select * from student";
+    //var str_test = "select * from student";
     //var insertStudent = 'insert into student (name, id) values ('.concat($scope.queryData.name, ",", $scope.queryData.name_id, ");");
     //$scope.type = 1; // This keeps a track of the operation we want to carry out. 
 
