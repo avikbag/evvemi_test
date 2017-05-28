@@ -15,7 +15,8 @@ angular.module('evvemiApp')
       name: '',
       delete_id: null,
       new_name: null,
-      new_id: null
+      new_id: null,
+      get_id: null
     };
     
     var str_test = "select * from student";
@@ -37,7 +38,10 @@ angular.module('evvemiApp')
         q = "update student set name = '".concat($scope.queryData.new_name, "' where id = ", $scope.queryData.new_id, ";");
       }
       else if(type === 5){
-        q = "delete from student where id = ".concat($scope.queryData.delete_id);
+        q = "delete from student where id = ".concat($scope.queryData.delete_id, ";");
+      }
+      else if(type === 6){
+        q = "select name from course where studentid = ".concat($scope.queryData.get_id, ";");
       }
       console.log(q);
       var data = {
