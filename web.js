@@ -46,7 +46,7 @@ app.get('/api/query', function(res, req){
       console.log(err.error);
     }
   });
-  req.end();
+  //req.end();
 });
 
 //// the query object implements the promise API
