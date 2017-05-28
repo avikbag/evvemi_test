@@ -4,7 +4,7 @@
     Basic Implementation of CRUD using Heroku, AWS RDS, PostgreSQL, NodeJS and AngularJS
   </p>
 </div>
-<div layout="column">
+<div layout="column" class='main'>
 	<div flex layout="row" layout-align="center center">
 		<md-content layout="column" layout-align="center center">
 			<md-button flex ng-click=query(1) class="md-raised md-primary">Add Students Table</md-button>
@@ -87,7 +87,7 @@
 				</div>
 			</md-input-container>
 			<md-content flex='20'>
-				<md-button ng-click=query(6) class="md-raised md-warn">Query Info</md-button>
+				<md-button ng-click="query(6); showTabDialog($event)"  class="md-raised md-warn" >Query Info</md-button>
 			</md-content>
 		</div>
 	</form>

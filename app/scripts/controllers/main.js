@@ -8,8 +8,37 @@
  * Controller of the evvemiApp
  */
 angular.module('evvemiApp')
-  .controller('MainCtrl', function ($scope, $http) {
+  .controller('MainCtrl', function ($scope, $http, $mdDialog) {
     
+function DialogController($scope, $mdDialog) {
+    $scope.hide = function() {
+      $mdDialog.hide();
+    };
+
+    $scope.cancel = function() {
+      $mdDialog.cancel();
+    };
+
+    $scope.answer = function(answer) {
+      $mdDialog.hide(answer);
+    };
+  }
+$scope.showTabDialog = function(ev) {
+    $mdDialog.show({
+      controller: DialogController,
+      templateUrl: 'views/tabDialog.tmpl.html',
+      parent: angular.element(document.querySelector('.main')),
+      targetEvent: ev,
+      clickOutsideToClose:true
+			//textContent: 'This is a test',
+			//ariaLabel: 'Tets'
+    })
+        .then(function(answer) {
+          $scope.status = 'You said the information was "' + answer + '".';
+        }, function() {
+          $scope.status = 'You cancelled the dialog.';
+        });
+  };
     $scope.queryData = {
       name_id: null,
       name: '',
@@ -55,7 +84,8 @@ angular.module('evvemiApp')
               params: data
       }).then(function(output) {
           console.log('Data posted successfully');
-          console.log(output);
+          $scope.output = output.data;
+          console.log(output.data);
       });
     };
   
