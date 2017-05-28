@@ -59,7 +59,7 @@ app.get('/api/query', function(res, req){
       req.end();
     });
   });
-};
+});
 // you can run queries directly against the pool
 //app.get('/api/query', function(res, req){
   ////console.log(res.params);
