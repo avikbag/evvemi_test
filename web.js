@@ -41,6 +41,7 @@ app.get('/api/query', function(res, req){
   console.log(res.query.query);
   //req.write(res.query.query);
   pool.query(res.query.query, function(err, result) {
+    console.log(result.rows)
     req.write(result.rows);
     if(err){
       console.log(err.error);
