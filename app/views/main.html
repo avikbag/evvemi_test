@@ -1,18 +1,28 @@
 <div class="jumbotron">
   <h1>'Allo, 'Allo!</h1>
   <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
+    Basic Implementation of CRUD using Heroku, AWS RDS, PostgreSQL, NodeJS and AngularJS
   </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
 </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-  <md-content>
-    <md-button ng-click=query() class="md-raised md-primary">Primary</md-button>
-  </md-content>
-</div>
+<form name="crud">
+	<div layout="row" layout-align="center center">
+		<md-input-container flex='40' class="md-block">
+			<label>Student ID</label>
+			<input md-maxlength="30" required md-no-asterisk name="name_name" ng-model="queryData.name_id">
+			<div ng-messages="crud.name_name.$error">
+				<div ng-message="required">This is required.</div>
+			</div>
+		</md-input-container>
+		<md-input-container flex='40' class="md-block">
+			<label>Student Name</label>
+			<input md-maxlength="30" required md-no-asterisk name="name_id" ng-model="queryData.name">
+			<div ng-messages="crud.name_id.$error">
+				<div ng-message="required">This is required.</div>
+			</div>
+		</md-input-container>
+		<md-content flex='20'>
+			<md-button ng-click=query() class="md-raised md-primary">Insert data</md-button>
+		</md-content>
+	</div>
+</form>

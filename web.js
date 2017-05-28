@@ -5,7 +5,7 @@ var app = express();
 
 app.use(morgan('dev'));
 app.use(gzippo.staticGzip("" + __dirname + "/dist"));
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 9000;
 
 app.listen(port, function(){
   console.log('Our app is running on http://localhost:' + port);
