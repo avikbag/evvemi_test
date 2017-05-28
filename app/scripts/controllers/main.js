@@ -85,7 +85,7 @@ $scope.showTabDialog = function(ev) {
       }).then(function(output) {
           console.log('Data posted successfully');
           $scope.output = output.data;
-          console.log(output.data);
+          console.log($scope.output);
       });
     };
   
